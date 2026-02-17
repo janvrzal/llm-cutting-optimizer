@@ -1,0 +1,224 @@
+/* --- DEFINICE PROMĚNNÝCH --- */
+:root {
+  --primary-blue: #1e3a8a;
+  --accent-orange: #f97316;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-white: #ffffff;
+  --bg-sidebar: #f8fafc;
+  --border-radius: 8px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* --- GLOBÁLNÍ RESET --- */
+[data-testid="stAppViewContainer"] {
+  background-color: var(--bg-white);
+}
+
+/* Hlavní texty */
+.stApp p,
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp h4,
+.stApp h5,
+.stApp h6,
+.stApp label,
+.stTextArea textarea,
+.stTextInput input,
+.stNumberInput input {
+  color: var(--text-dark) !important;
+  font-family: sans-serif;
+}
+
+/* Nadpisy */
+h1,
+h2,
+h3 {
+  color: var(--primary-blue) !important;
+  font-weight: 700 !important;
+}
+
+/* --- OPRAVA HLAVIČKY (Burger + Sidebar) --- */
+/* Toto odstraní ten "tmavý flák" nahoře */
+header[data-testid="stHeader"] {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  z-index: 1000 !important;
+}
+
+/* Reset tlačítek v hlavičce */
+header[data-testid="stHeader"] button {
+  background: transparent !important;
+  border: none !important;
+  color: var(--primary-blue) !important;
+}
+
+/* Ikonky v hlavičce */
+header[data-testid="stHeader"] * {
+  color: var(--text-dark) !important;
+}
+
+header[data-testid="stHeader"] button:hover {
+  background-color: #f1f5f9 !important;
+  border-radius: 50% !important; /* Kulaté pozadí při najetí */
+}
+
+/* --- OPRAVA TLAČÍTKA VLEVO NAHOŘE (Sidebar Toggle) --- */
+/* Zjednodušená průhledná verze */
+[data-testid="stSidebarCollapsedControl"] {
+  color: var(--primary-blue) !important;
+  background-color: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Zacílení na SVG ikonu (šipku) */
+[data-testid="stSidebarCollapsedControl"] svg {
+  fill: var(--primary-blue) !important;
+  stroke: var(--primary-blue) !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Zacílení na textovou ikonu (pokud Streamlit použije font) */
+[data-testid="stSidebarCollapsedControl"] span {
+  color: var(--primary-blue) !important;
+  font-size: 24px !important;
+}
+
+/* Hover efekt - jemné podbarvení */
+[data-testid="stSidebarCollapsedControl"]:hover {
+  background-color: #f1f5f9 !important;
+  border-radius: 50% !important; /* Kulaté při najetí */
+}
+
+/* --- SIDEBAR --- */
+[data-testid="stSidebar"] {
+  background-color: var(--bg-sidebar) !important;
+  border-right: 1px solid #e2e8f0;
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+  color: var(--primary-blue) !important;
+}
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label {
+  color: var(--text-dark) !important;
+}
+
+/* --- VSTUPNÍ POLE --- */
+.stTextArea textarea,
+.stTextInput input,
+.stNumberInput input {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: var(--border-radius) !important;
+  padding: 10px !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.stTextArea textarea:focus,
+.stTextInput input:focus,
+.stNumberInput input:focus {
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2) !important;
+  outline: none;
+}
+
+[data-testid="stMarkdownContainer"] p,
+label {
+  font-weight: 600 !important;
+  color: var(--text-dark) !important;
+  font-size: 0.95rem;
+}
+
+/* --- HLAVNÍ TLAČÍTKA --- */
+.stButton > button {
+  background: var(--accent-orange) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--border-radius) !important;
+  padding: 0.6rem 1.2rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.4) !important;
+  transition: transform 0.1s, box-shadow 0.1s !important;
+}
+
+.stButton > button:hover {
+  background: #ea580c !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(249, 115, 22, 0.5) !important;
+}
+
+.stButton > button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.stButton > button p {
+  color: white !important;
+}
+
+/* --- VÝSLEDKY A METRIKY --- */
+[data-testid="stMetric"] {
+  background-color: var(--bg-white);
+  border: 1px solid #e2e8f0;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+[data-testid="stMetricLabel"] {
+  color: var(--text-light) !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+[data-testid="stMetricValue"] {
+  color: var(--primary-blue) !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+}
+
+/* --- PROGRESS BAR --- */
+.stProgress > div > div > div > div {
+  background-color: var(--primary-blue) !important;
+  border-radius: 10px;
+}
+
+/* --- EXPANDER --- */
+.streamlit-expanderHeader {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--border-radius) !important;
+}
+.streamlit-expanderContent {
+  background-color: var(--bg-sidebar) !important;
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  color: var(--text-dark) !important;
+}
+
+/* --- SUCCESS / INFO --- */
+.stSuccess {
+  background-color: #dcfce7 !important;
+  color: #14532d !important;
+  border-left: 5px solid #22c55e;
+}
+.stInfo {
+  background-color: #eff6ff !important;
+  color: #1e3a8a !important;
+  border-left: 5px solid #3b82f6;
+}
