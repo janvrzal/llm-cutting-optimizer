@@ -34,7 +34,7 @@ with st.sidebar:
                 st.error("Nejdřív vlož klíč!")
             else:
                 try:
-                    models = aiLogic.list_available_models(api_key)
+                    models = ai_logic.list_available_models(api_key)
                     st.write("Dostupné modely:")
                     for m in models:
                         if 'generateContent' in m.supported_generation_methods:
@@ -53,7 +53,7 @@ if st.button("Spočítat"):
         with st.spinner("Přemýšlím..."):
             try:
                 # 1. AI
-                data = aiLogic.parse_request_with_ai(text_input, api_key)
+                data = ai_logic.parse_request_with_ai(text_input, api_key)
 
                 # Display Info
                 stock_types = ", ".join([f"{d}mm" for d in data.stock_lengths_mm])
