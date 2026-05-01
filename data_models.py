@@ -17,5 +17,4 @@ class MaterialOrder(BaseModel):
     stock_lengths_mm: List[int]
 
     # Kerf width is NOT HERE. It is a saw parameter, not part of the text order.
-
     pieces: List[RequestedPiece]
